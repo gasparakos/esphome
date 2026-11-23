@@ -50,12 +50,6 @@ DateTimeEntity = datetime_ns.class_("DateTimeEntity", DateTimeBase)
 OnTimeBase = datetime_ns.class_("OnTimeBase", automation.FiringComponent)
 OnDateTimeBase = datetime_ns.class_("OnDateTimeBase", automation.FiringComponent)
 
-DATETIME_MODES = [
-    "DATE",
-    "TIME",
-    "DATETIME",
-]
-
 
 def _validate_time_present(config: ConfigType) -> ConfigType:
     config = config.copy()
