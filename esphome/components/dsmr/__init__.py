@@ -87,7 +87,12 @@ async def to_code(config: ConfigType) -> None:
     cg.add_build_flag("-DDSMR_WATER_MBUS_ID=" + str(config[CONF_WATER_MBUS_ID]))
     cg.add_build_flag("-DDSMR_THERMAL_MBUS_ID=" + str(config[CONF_THERMAL_MBUS_ID]))
 
-    cg.add_library("esphome/dsmr_parser", "1.11.0")
+    # Fork of esphome-libs/dsmr_parser v1.11.0 that can parse telegrams from the Holley DTSD545 (E.ON Hungary)
+    cg.add_library(
+        "dsmr_parser",
+        None,
+        "https://github.com/gasparakos/esphome-dsmr_parser.git#fix/hungarian-holley-telegram",
+    )
 
 
 def final_validate(config: ConfigType) -> None:
